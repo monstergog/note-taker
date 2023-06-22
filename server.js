@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const {v4 : uuidv4} = require('uuid')
 
 const app = express();
 const PORT = 3001;
@@ -28,7 +29,8 @@ app.post('/api/notes', (req, res) => {
 
     const newNote = {
         title,
-        text
+        text,
+        id: uuidv4()
     }
 
     fs.readFile('./db/db.json', 'utf8', (err, data) => {

@@ -1,14 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "title": "1234",
-        "text": "asdf"
-    },
-    {
         "title": "test",
-        "text": "zxcv"
+        "text": "uid",
+        "id": "cdb77979-1261-42ff-98a8-5afaa803bf64"
+    },
+    {
+        "title": "new note",
+        "text": "thing",
+        "id": "5d8a3688-3017-4c45-ba59-0542c410eaa7"
+    },
+    {
+        "title": "test refresh",
+        "text": "123",
+        "id": "0445f3b8-cd27-40ce-8aca-0b2f099634b7"
     }
 ]

@@ -6,7 +6,8 @@ const {v4 : uuidv4} = require('uuid')
 const app = express();
 const PORT = 3001;
 
-app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
@@ -23,8 +24,6 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-    console.log(req.body);
-
     const {title, text} = req.body;
 
     const newNote = {
@@ -47,6 +46,32 @@ app.post('/api/notes', (req, res) => {
                 writeErr
                     ? console.error(writeErr)
                     : console.info('Successfully added new note!')
+            }))
+        }
+    });
+});
+
+app.delete(`/api/notes/:id`, (req, res) => {
+    const noteID = req.params.id;
+
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            const parsedNotes = JSON.parse(data);
+
+            const index = parsedNotes.findIndex((obj) => obj.id === noteID)
+
+            if (index > -1) {
+                parsedNotes.splice(index, 1);
+            }
+
+            fs.writeFile('./db/db.json',
+            JSON.stringify(parsedNotes, null, 4),
+            (writeErr => {
+                writeErr
+                    ? console.error(writeErr)
+                    : console.info('Successfully removed a note!')
             }))
         }
     });

@@ -48,7 +48,7 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }).then(location.reload());
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -98,9 +98,6 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
-  // REMOVE THIS
-  console.log(activeNote);
-  console.log(activeNote.id);
   renderActiveNote();
 };
 

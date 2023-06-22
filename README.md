@@ -6,7 +6,7 @@ A note taking application that allows the user to write, view, or delete notes u
 
 ## Installation
 
-Before downloading the repo, make sure you have node.js installed. After that, install the repo and use the command line to reach the downloaded repo's directory. Install npm, express, uuid, then run `npm run start`.
+Before downloading the repo, make sure you have node.js installed. After that, install the repo and use the command line to reach the downloaded repo's directory. Install npm, express, uuid, then run `npm start`.
 
 ## Usage
 
